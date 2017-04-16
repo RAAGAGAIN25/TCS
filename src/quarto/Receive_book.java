@@ -7,6 +7,7 @@ package quarto;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -68,8 +69,9 @@ public class Receive_book extends javax.swing.JFrame {
         jissue = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(null);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -97,6 +99,11 @@ public class Receive_book extends javax.swing.JFrame {
         jid.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jidMouseClicked(evt);
+            }
+        });
+        jid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jidKeyPressed(evt);
             }
         });
 
@@ -257,13 +264,9 @@ public class Receive_book extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public static long betdates(Date fd,Date sd)throws IOException
+    public void enter()
     {
-     return ChronoUnit.DAYS.between(fd.toInstant(), sd.toInstant());
-    }
-    
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        int count=0;
+         int count=0;
         if(jid.getText().equals(""))
        {
            JOptionPane.showMessageDialog(null,"Enter Student ID");
@@ -297,7 +300,15 @@ public class Receive_book extends javax.swing.JFrame {
            
            
        }
+    }
+    public static long betdates(Date fd,Date sd)throws IOException
+    {
+     return ChronoUnit.DAYS.between(fd.toInstant(), sd.toInstant());
+    }
+    
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
        
+       enter();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jreturnActionPerformed
@@ -319,6 +330,9 @@ public class Receive_book extends javax.swing.JFrame {
             ps.setString(2,jid.getText());
             ps.execute();
             JOptionPane.showMessageDialog(null,"Returned Succesfully");
+            jcomboname.enable(false);
+            jissue.setText("");
+            jfine.setText("");
             String sql1;
             sql1="Update book_info SET availability=? where id=?";
             pstt=cn.prepareStatement(sql1);
@@ -375,11 +389,18 @@ public class Receive_book extends javax.swing.JFrame {
     }//GEN-LAST:event_jcombonameMouseClicked
 
     private void jidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jidMouseClicked
-        jid.setText("");
+        
         DefaultComboBoxModel dm=new DefaultComboBoxModel();
         jcomboname.setModel(dm);
         jButton7.setEnabled(true);
     }//GEN-LAST:event_jidMouseClicked
+
+    private void jidKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jidKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            enter();
+        }
+    }//GEN-LAST:event_jidKeyPressed
 
     /**
      * @param args the command line arguments

@@ -40,7 +40,8 @@ public class Student_table extends javax.swing.JFrame {
         text_lbnm = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -71,7 +72,6 @@ public class Student_table extends javax.swing.JFrame {
         ));
         table_lib.setOpaque(false);
         table_lib.setSelectionBackground(new java.awt.Color(51, 51, 51));
-        table_lib.setSelectionForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(table_lib);
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));

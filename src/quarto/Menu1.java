@@ -115,6 +115,7 @@ PreparedStatement pst=null;
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         setSize(new java.awt.Dimension(766, 490));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
@@ -409,6 +410,8 @@ PreparedStatement pst=null;
         dob.setBackground(new java.awt.Color(51, 51, 51));
         dob.setForeground(new java.awt.Color(255, 255, 255));
         dob.setDateFormatString("yyyy-MM-dd");
+        dob.setMaxSelectableDate(new java.util.Date(1104521507000L));
+        dob.setMinSelectableDate(new java.util.Date(-16093000L));
 
         jButton3.setBackground(new java.awt.Color(51, 51, 51));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
@@ -626,6 +629,11 @@ PreparedStatement pst=null;
                 text_bookActionPerformed(evt);
             }
         });
+        text_book.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text_bookKeyPressed(evt);
+            }
+        });
 
         jButton6.setBackground(new java.awt.Color(52, 41, 41));
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
@@ -644,6 +652,11 @@ PreparedStatement pst=null;
         text_author.setBackground(new java.awt.Color(51, 51, 51));
         text_author.setForeground(new java.awt.Color(255, 255, 255));
         text_author.setBorder(null);
+        text_author.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text_authorKeyPressed(evt);
+            }
+        });
 
         jSeparator9.setBackground(new java.awt.Color(255, 204, 51));
         jSeparator9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 102, 0), 0));
@@ -658,6 +671,11 @@ PreparedStatement pst=null;
         text_loc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 text_loc1ActionPerformed(evt);
+            }
+        });
+        text_loc1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text_loc1KeyPressed(evt);
             }
         });
 
@@ -720,6 +738,11 @@ PreparedStatement pst=null;
         text_loc2.setBackground(new java.awt.Color(51, 51, 51));
         text_loc2.setForeground(new java.awt.Color(255, 255, 255));
         text_loc2.setBorder(null);
+        text_loc2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                text_loc2KeyPressed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -1005,7 +1028,7 @@ PreparedStatement pst=null;
         pst.setString(4,text_loc2.getText());
         pst.setString(5,text_loc3.getText());
         
-        if(text_book.getText()==null||text_author.getText()==null||text_loc1.getText()==null||text_loc2.getText()==null||text_loc3.getText()==null)
+        if(text_book.getText().equals("") ||text_author.getText().equals("") ||text_loc1.getText().equals("") ||text_loc2.getText().equals("") ||text_loc3.getText().equals("") )
         {
             JOptionPane.showMessageDialog(null,"Fill all the blanks");
             
@@ -1017,6 +1040,11 @@ PreparedStatement pst=null;
             pst.execute(); 
         JOptionPane.showMessageDialog(null,"Data is saved successfully");
         
+        text_book.setText("");
+        text_author.setText("");
+        text_loc1.setText("");
+        text_loc2.setText("");
+        text_loc3.setText("");
        
         }
     } 
@@ -1279,6 +1307,38 @@ catch(Exception e)
         Update_student us=new Update_student();
         us.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void text_bookKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_bookKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            text_author.setText("");
+            text_author.requestFocus();
+        }
+    }//GEN-LAST:event_text_bookKeyPressed
+
+    private void text_authorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_authorKeyPressed
+      if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            text_loc1.setText("");
+            text_loc1.requestFocus();
+        }
+    }//GEN-LAST:event_text_authorKeyPressed
+
+    private void text_loc1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_loc1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            text_loc2.setText("");
+            text_loc2.requestFocus();
+        }
+    }//GEN-LAST:event_text_loc1KeyPressed
+
+    private void text_loc2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_text_loc2KeyPressed
+      if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            text_loc3.setText("");
+            text_loc3.requestFocus();
+        }
+    }//GEN-LAST:event_text_loc2KeyPressed
 
     
   

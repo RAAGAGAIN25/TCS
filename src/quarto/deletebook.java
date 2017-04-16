@@ -5,6 +5,7 @@
  */
 package quarto;
 
+import com.sun.glass.events.KeyEvent;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -61,7 +62,8 @@ public class deletebook extends javax.swing.JFrame {
 
         jLabel7.setText("jLabel7");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -78,6 +80,11 @@ public class deletebook extends javax.swing.JFrame {
         id.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 idMouseClicked(evt);
+            }
+        });
+        id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                idKeyPressed(evt);
             }
         });
 
@@ -199,7 +206,8 @@ public class deletebook extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    public void extractinfo()
+    {
         if(id.getText().equals(""))
         {
             JOptionPane.showMessageDialog(null," Enter Book Id ");
@@ -230,6 +238,9 @@ public class deletebook extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null,e);
             }
         }
+    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        extractinfo();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void idMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idMouseClicked
@@ -273,6 +284,13 @@ public class deletebook extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
     }//GEN-LAST:event_deletebuttonActionPerformed
+
+    private void idKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_idKeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            extractinfo();
+        }
+    }//GEN-LAST:event_idKeyPressed
 
     /**
      * @param args the command line arguments

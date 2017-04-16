@@ -5,6 +5,7 @@
  */
 package quarto;
 
+import com.sun.glass.events.KeyEvent;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -68,7 +69,8 @@ public class deletestudent extends javax.swing.JFrame {
         javailability = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -93,6 +95,11 @@ public class deletestudent extends javax.swing.JFrame {
         jid.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jidMouseClicked(evt);
+            }
+        });
+        jid.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jidKeyPressed(evt);
             }
         });
 
@@ -301,8 +308,9 @@ public class deletestudent extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-       if(jid.getText().equals(""))
+    public void deletestu()
+    {
+        if(jid.getText().equals(""))
        {
            JOptionPane.showMessageDialog(null,"Enter Student ID");
        }
@@ -350,6 +358,9 @@ public class deletestudent extends javax.swing.JFrame {
               JOptionPane.showMessageDialog(null,e);
           }
        }
+    }
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+       deletestu();
 
     }//GEN-LAST:event_jButton7ActionPerformed
 
@@ -394,6 +405,14 @@ public class deletestudent extends javax.swing.JFrame {
         this.dispose();
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jidKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jidKeyPressed
+       
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
+        {
+            deletestu();
+        }
+    }//GEN-LAST:event_jidKeyPressed
 
     /**
      * @param args the command line arguments

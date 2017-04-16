@@ -105,6 +105,7 @@ PreparedStatement pst=null;
         table_stu = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         setSize(new java.awt.Dimension(766, 490));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
@@ -716,6 +717,8 @@ PreparedStatement pst=null;
         dob.setDate(null);
         text_libfirstname.setText("");
         text_libsurname.setText("");
+        Radio_male.setSelected(false);
+        Radio_female.setSelected(false);
     }
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         

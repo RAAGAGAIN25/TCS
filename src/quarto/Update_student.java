@@ -68,7 +68,8 @@ public class Update_student extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         updatebutton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -368,6 +369,12 @@ public class Update_student extends javax.swing.JFrame {
                 ps.executeUpdate();
                 JOptionPane.showMessageDialog(null," Student Information Updated Succesfully");
                 updatebutton.setEnabled(false);
+                firstname.setText("");
+                surname.setText("");
+                contact.setText("");
+                email.setText("");
+                pass.setText("");
+                confirmpass.setText("");
             }
             catch(Exception e)
             {
