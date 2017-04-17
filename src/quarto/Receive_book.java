@@ -266,7 +266,16 @@ public class Receive_book extends javax.swing.JFrame {
 
     public void enter()
     {
-         int count=0;
+        
+    }
+    public static long betdates(Date fd,Date sd)throws IOException
+    {
+     return ChronoUnit.DAYS.between(fd.toInstant(), sd.toInstant());
+    }
+    
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+       
+      int count=0;
         if(jid.getText().equals(""))
        {
            JOptionPane.showMessageDialog(null,"Enter Student ID");
@@ -300,15 +309,6 @@ public class Receive_book extends javax.swing.JFrame {
            
            
        }
-    }
-    public static long betdates(Date fd,Date sd)throws IOException
-    {
-     return ChronoUnit.DAYS.between(fd.toInstant(), sd.toInstant());
-    }
-    
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-       
-       enter();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jreturnActionPerformed
@@ -396,10 +396,7 @@ public class Receive_book extends javax.swing.JFrame {
     }//GEN-LAST:event_jidMouseClicked
 
     private void jidKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jidKeyPressed
-        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
-        {
-            enter();
-        }
+        
     }//GEN-LAST:event_jidKeyPressed
 
     /**
