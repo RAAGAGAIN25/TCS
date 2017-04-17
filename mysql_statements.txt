@@ -75,3 +75,6 @@ BEGIN
   SET NEW.id = CONCAT('BOOK', LPAD(LAST_INSERT_ID(), 4, '0'));
 END$$
 DELIMITER ;
+
+CREATE TABLE book_issue (Book_id VARCHAR(10),Student_id VARCHAR(10),Book_name VARCHAR(30),issuedate DATE
+);
