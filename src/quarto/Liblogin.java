@@ -21,6 +21,7 @@ public class Liblogin extends javax.swing.JFrame {
        
        
         c=db.java_db();
+      
          
         
         
@@ -100,11 +101,6 @@ public class Liblogin extends javax.swing.JFrame {
         lib_combo.setBackground(new java.awt.Color(51, 51, 51));
         lib_combo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ADMIN", "LIBRARIAN" }));
         lib_combo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        lib_combo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lib_comboActionPerformed(evt);
-            }
-        });
         lib_combo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 lib_comboKeyPressed(evt);
@@ -146,11 +142,6 @@ public class Liblogin extends javax.swing.JFrame {
                 lib_passMouseClicked(evt);
             }
         });
-        lib_pass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lib_passActionPerformed(evt);
-            }
-        });
         lib_pass.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 lib_passKeyPressed(evt);
@@ -163,8 +154,6 @@ public class Liblogin extends javax.swing.JFrame {
         jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 390, 490));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 766, -1));
-
-        getAccessibleContext().setAccessibleName("Library Management");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -259,14 +248,6 @@ public class Liblogin extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_lib_buttonActionPerformed
-
-    private void lib_comboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lib_comboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lib_comboActionPerformed
-
-    private void lib_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lib_passActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lib_passActionPerformed
 
     private void lib_passKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lib_passKeyPressed
        if(evt.getKeyCode()==KeyEvent.VK_ENTER)
